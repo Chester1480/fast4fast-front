@@ -31,7 +31,7 @@
           <v-list-item
             v-for="[icon, text,link] in links"
             :key="icon"
-            :href="link"
+            :to="link"
           >
           <template v-slot:prepend>
             <v-icon>{{ icon }}</v-icon>
@@ -44,7 +44,7 @@
 
     <v-main>
       <v-container
-        class="py-8 px-6"
+        class="py-4 px-4"
         fluid
       >
         <v-main>
@@ -57,13 +57,15 @@
 
 
 <script >
+  const userInfo = localStorage.getItem('userInfo');
+  console.log(userInfo);
   //import chart from 'https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.js';
   const hostname = window.location.origin;
   //左側功能清單
   const links = [
         // ['mdi-home', 'Home',hostname+'/'],
-        ['mdi-comment-outline', 'Demo_about',hostname+'/about'],
-        ['mdi-table', 'demo_table',hostname+'/table'],
+        ['mdi-comment-outline', 'Demo_about','/about'],
+        ['mdi-table', 'demo_table','/table'],
         // ['mdi- ', 'Demo_Trash',''],
         // ['mdi-alert-octagon', 'Demo_Spam',''],
   ];

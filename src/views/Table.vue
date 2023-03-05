@@ -20,9 +20,9 @@
         </tr>
       </tbody>
     </v-table>
-  </template>
-  
+</template>
   <script>
+
     export default {
       data () {
         return {
@@ -71,4 +71,6 @@
         }
       },
     }
+    document.title = "demo_table";
+    
   </script>
