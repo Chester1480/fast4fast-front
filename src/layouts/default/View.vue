@@ -17,13 +17,13 @@
     </v-system-bar> -->
 
     <v-navigation-drawer v-model="drawer">
-          <v-sheet
+          <!-- <v-sheet
             color="grey-lighten-4"
             class="pa-4"
           >
             <v-img :src="avatar" alt = ""></v-img>
             <div>{{ account }}</div>
-          </v-sheet>
+          </v-sheet> -->
 
       <v-divider></v-divider>
 
@@ -56,10 +56,20 @@
 </template>
 
 
-<script >
+<script>
+  // import { ref } from "vue";
+  // import { useTheme } from "vuetify";
+  // const theme = useTheme();
+  // const myThemes = ["customDarkTheme", "light", "customLightTheme", "customDarkTheme"];
+  // const selectedTheme = ref(myThemes[0]);
+
+  // const setTheme = () => {
+  //   theme.global.name.value = selectedTheme.value;
+  //   console.log(selectedTheme.value);
+  // };
+  
   const userInfo = localStorage.getItem('userInfo');
-  console.log(userInfo);
-  //import chart from 'https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.js';
+  
   const hostname = window.location.origin;
   //左側功能清單
   const links = [
@@ -69,11 +79,11 @@
         // ['mdi- ', 'Demo_Trash',''],
         // ['mdi-alert-octagon', 'Demo_Spam',''],
   ];
-  //頭像圖片
-  const avatar = 'https://static.vecteezy.com/system/resources/previews/010/054/157/original/chat-bot-robot-avatar-in-circle-round-shape-isolated-on-white-background-stock-illustration-ai-technology-futuristic-helper-communication-conversation-concept-in-flat-style-vector.jpg';
-  //顯示帳號資料
-  const account = 'robot_demo';
-
+  // //頭像圖片
+   const avatar = 'https://static.vecteezy.com/system/resources/previews/010/054/157/original/chat-bot-robot-avatar-in-circle-round-shape-isolated-on-white-background-stock-illustration-ai-technology-futuristic-helper-communication-conversation-concept-in-flat-style-vector.jpg';
+  // //顯示帳號資料
+   const account = 'robot_demo';
+   const drawer = null;
   export default {
     data: () => ({
       avatar,
