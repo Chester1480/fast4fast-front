@@ -27,6 +27,14 @@ const components = [
   
 ];
 
+const mobileComponents = [
+  {
+    path: '/about',
+    name: 'about',
+    component: () => import('@/views/About.vue'),
+  },
+]
+
 const routes = [
   {
     path: '/login',
@@ -38,6 +46,12 @@ const routes = [
     path: '/',
     component: () => import('@/layouts/default/Default.vue'),
     children: components,
+  },
+  {
+    
+    path: '/Mobile',
+    component: () => import('@/layouts/Mobile/UserIndex.vue'),
+    children: mobileComponents,
   },
 ]
 
