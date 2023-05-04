@@ -25,22 +25,21 @@ const components = [
     name: 'table',
     component: () => import('@/views/PC/Table.vue'),
   },
-  
 ];
 //手機頁面子項目
 const mobileComponents = [
-  {
-    path: '/about',
-    name: 'about',
-    component: () => import('@/views/PC/About.vue'),
-  },
+  // {
+  //   path: '/about',
+  //   name: 'about',
+  //   component: () => import('@/views/PC/About.vue'),
+  // },
 ]
 
 const routes = [
   {
     path: '/login',
     name: 'login',
-    component: () => import('@/views/Login.vue'),
+    component: () => import('@/views/PC/Login.vue'),
   },
   {
     //一般PC頁面
@@ -52,7 +51,7 @@ const routes = [
     //手機頁面
     path: '/Mobile',
     component: () => import('@/layouts/Mobile/Default.vue'),
-    children: mobileComponents,
+    // children: mobileComponents,
   },
 ]
 
