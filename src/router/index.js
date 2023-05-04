@@ -2,6 +2,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 
+//一般PC頁面子項目
 const components = [
   {
     path: '',
@@ -26,7 +27,7 @@ const components = [
   },
   
 ];
-
+//手機頁面子項目
 const mobileComponents = [
   {
     path: '/about',
@@ -42,15 +43,15 @@ const routes = [
     component: () => import('@/views/Login.vue'),
   },
   {
-    
+    //一般PC頁面
     path: '/',
     component: () => import('@/layouts/default/Default.vue'),
     children: components,
   },
   {
-    
+    //手機頁面
     path: '/Mobile',
-    component: () => import('@/layouts/Mobile/UserIndex.vue'),
+    component: () => import('@/layouts/Mobile/ShopIndex.vue'),
     children: mobileComponents,
   },
 ]
