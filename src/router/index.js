@@ -2,8 +2,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 
-//一般PC頁面子項目
-const components = [
+//個人管理頁面子項目
+const dashboardComponents = [
   {
     path: '',
     name: 'home',
@@ -34,6 +34,14 @@ const mobileComponents = [
   //   component: () => import('@/views/PC/About.vue'),
   // },
 ]
+//一般PC頁面子項目
+const components = [
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('@/views/Public/Test.vue'),
+  },
+]
 
 const routes = [
   {
@@ -51,13 +59,13 @@ const routes = [
     //手機頁面
     path: '/Mobile',
     component: () => import('@/layouts/Mobile/Default.vue'),
-    // children: mobileComponents,
+    children: mobileComponents,
   },
   {
     //個人管理頁面
     path: '/Dashboard',
     component: () => import('@/layouts/Dashboard/Default.vue'),
-    children: components,
+    children: dashboardComponents,
   },
 ]
 
