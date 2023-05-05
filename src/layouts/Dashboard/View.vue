@@ -29,7 +29,10 @@
           <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
         </v-list>
       </v-navigation-drawer>
-      <v-main style="height: 250px"></v-main>
+     
+      <v-main style="height: 650px">
+          <router-view />
+      </v-main>
     </v-layout>
   </v-card>
 </template>

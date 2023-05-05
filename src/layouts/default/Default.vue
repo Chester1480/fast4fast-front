@@ -1,12 +1,12 @@
 <template>
-    <!-- <v-app-bar flat>
-        <v-app-bar-title>
-        <v-icon icon="mdi-spotify" />
-        Searchfy  
-        </v-app-bar-title>
-    </v-app-bar> -->
+    <v-app>
+        <AppBar />
+        <v-main>
+          <router-view />
+        </v-main>
+    </v-app>
 </template>
 
 <script setup>
-//
+     import AppBar from './AppBar.vue'
 </script>
