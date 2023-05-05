@@ -1,13 +1,12 @@
 <template>
-  <v-app>
-    <default-bar />
-    <br><br>
-    <default-view />
-  </v-app>
+    <!-- <v-app-bar flat>
+        <v-app-bar-title>
+        <v-icon icon="mdi-spotify" />
+        Searchfy  
+        </v-app-bar-title>
+    </v-app-bar> -->
 </template>
 
 <script setup>
-  import DefaultBar from './AppBar.vue'
-  import DefaultView from './View.vue'
-  const token = localStorage.getItem('token');
+//
 </script>

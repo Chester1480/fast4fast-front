@@ -1,62 +1,57 @@
-<!-- <template>
-  <v-main>
-    <router-view />
-  </v-main>
-</template> -->
-
 <template>
-  <v-app id="inspire">
-    <!-- <v-system-bar>
-      <v-spacer></v-spacer>
-
-      <v-icon>mdi-square</v-icon>
-      
-      <v-icon>mdi-circle</v-icon>
-      
-      <v-icon>mdi-triangle</v-icon>
-    </v-system-bar> -->
-
-    <v-navigation-drawer v-model="drawer">
-          <!-- <v-sheet
-            color="grey-lighten-4"
-            class="pa-4"
-          >
-            <v-img :src="avatar" alt = ""></v-img>
-            <div>{{ account }}</div>
-          </v-sheet> -->
-
-      <v-divider></v-divider>
-
-      <v-list>
-          <v-list-item
-            v-for="[icon, text,link] in links"
-            :key="icon"
-            :to="link"
-          >
-          <template v-slot:prepend>
-            <v-icon>{{ icon }}</v-icon>
-          </template>
-
-          <v-list-item-title>{{ text }}</v-list-item-title>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
-
-    <v-main>
-      <v-container
-        class="py-4 px-4"
-        fluid
+  <v-card>
+    <v-layout>
+      <v-navigation-drawer
+        v-model="drawer"
+        :rail="rail"
+        permanent
+        @click="rail = false"
       >
-        <v-main>
-          <router-view />
-        </v-main>
-      </v-container>
-    </v-main>
-  </v-app>
+        <v-list-item
+          prepend-avatar="https://randomuser.me/api/portraits/men/85.jpg"
+          title="John Leider"
+          nav
+        >
+          <template v-slot:append>
+            <v-btn
+              variant="text"
+              icon="mdi-chevron-left"
+              @click.stop="rail = !rail"
+            ></v-btn>
+          </template>
+        </v-list-item>
+
+        <v-divider></v-divider>
+
+        <v-list density="compact" nav>
+          <v-list-item prepend-icon="mdi-home-city" title="Home" value="home"></v-list-item>
+          <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
+          <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
+        </v-list>
+      </v-navigation-drawer>
+      <v-main style="height: 250px"></v-main>
+    </v-layout>
+  </v-card>
 </template>
 
-
 <script>
+  export default {
+    data () {
+      return {
+        drawer: true,
+        items: [
+          { title: 'Home', icon: 'mdi-home-city' },
+          { title: 'My Account', icon: 'mdi-account' },
+          { title: 'Users', icon: 'mdi-account-group-outline' },
+        ],
+        rail: true,
+      }
+    },
+  }
+</script>
+
+
+<!-- <script>
   // import { ref } from "vue";
   // import { useTheme } from "vuetify";
   // const theme = useTheme();
@@ -94,4 +89,4 @@
     }),
   }
 
-</script>
+</script> -->
