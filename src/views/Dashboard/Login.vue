@@ -16,7 +16,7 @@
                     :rules="passwordRules"
                     ></v-text-field>
             
-                    <v-btn type="submit" block class="mt-2">Submit</v-btn>
+                    <v-btn type="submit" @click="post" block class="mt-2">Submit</v-btn>
                 </v-form>
             </v-sheet>
         </v-container>
@@ -24,6 +24,11 @@
   </template>
   
   <script>
+    import { fetchPost } from '../../utils/url';
+    // import { getApiUrl } from '../../utils/url';
+
+    const url = window.location.origin;
+    
     export default {
       data: () => ({
         account: '',
@@ -41,5 +46,23 @@
           },
         ],
       }),
+      async method() {
+          async function post(){
+            const data = {
+              
+            }
+
+            const result = await fetchPost(url, data);
+            if (result) {
+              
+            } else {
+              
+            }
+            
+          }
+      },
+      watch: {
+        
+      }
     }
   </script>
