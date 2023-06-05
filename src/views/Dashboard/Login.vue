@@ -14,8 +14,7 @@
                     label="password"
                     type="password"
                     ></v-text-field>
-                    <!-- <button v-on:click="login" block class="mt-2">Login</button> -->
-                    <v-btn  @click="postApi" block class="mt-2">Login</v-btn>
+                    <v-btn @click="postApi" block class="mt-2">Login</v-btn>
                 </v-form>
             </v-sheet>
         </v-container>
@@ -45,10 +44,19 @@
           },
         ],
       }),
-      async method() {
-          async function postApi(){
+      methods: {
+          postApi: async function(){
             const data = getDataByType();
-            console.log(data);
+            localStorage.setItem("token", "1111");
+            const host = window.location.origin;
+           
+            const isMobileDevice = this.isMobileDevice();
+            console.log(isMobileDevice);
+            if (isMobileDevice) {
+              window.location.assign(host + "/");
+            } else {
+              window.location.assign(host + "/");
+            }
             // const result = await fetchPost(url, data);
             // if (result) {
               
@@ -56,6 +64,16 @@
               
             // }
             
+          },
+          isMobileDevice: function () { 
+            let mobileDevices = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
+            for (var i = 0; i < mobileDevices.length; i++) {
+                if (navigator.userAgent.match(mobileDevices[i])) {
+                  //console.log("isMobileDevice: match " + mobileDevices[i]);
+                  return true;
+                }
+            }
+            return false
           }
       },
       watch: {

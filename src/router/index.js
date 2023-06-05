@@ -133,8 +133,8 @@ function isLoggedIn() {
   // 檢查登入狀態
   // 若已登入，回傳 true
   // 若未登入，回傳 false
-  // const token = localStorage.getItem("token");
-  // return token != undefined ? true : false;
+  const token = localStorage.getItem("token");
+  return token != undefined ? true : false;
 }
 
 function isMobileDevice() {
