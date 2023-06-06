@@ -51,8 +51,8 @@
             const host = window.location.origin;
            
             const isMobileDevice = this.isMobileDevice();
-            console.log(isMobileDevice);
-            if (isMobileDevice) {
+
+            if (isMobileDevice()) {
               window.location.assign(host + "/");
             } else {
               window.location.assign(host + "/");
