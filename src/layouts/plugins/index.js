@@ -9,20 +9,20 @@ import { loadFonts } from './webfontloader'
 import vuetify from './vuetify'
 import router from '@/router'
 
-import { createI18n, useI18n } from 'vue-i18n'
+import { createI18n } from 'vue-i18n'
 import en from '../../locales/en.json'
-import zhHant from '../../locales/zh-Hant.json'
+import zhHant from '../../locales/zhHant.json'
 
 const messages = {
   "en":en ,
-  "zh-Hant":zhHant
+  "zhHant":zhHant
 }
 
-const i18n = new createI18n({
-  legacy: false, // Vuetify does not support the legacy mode of vue-i18n
-  locale: 'zh-Hant',
-  fallbackLocale: 'en',
-  messages,
+const i18n = createI18n({
+  silentFallbackWarn: true,
+  locale:  'zhHant',
+  messages, 
+  globalInjection: true // 全域注入
 })
 
 export function registerPlugins (app) {

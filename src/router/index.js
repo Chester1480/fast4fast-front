@@ -37,6 +37,11 @@ const mobileComponents = [
 //一般PC頁面子項目
 const components = [
   {
+    path: '/searchfy',
+    name: 'searchfy',
+    component: () => import('@/views/Public/Searchfy.vue'),
+  },
+  {
     path: '/test',
     name: 'test',
     component: () => import('@/views/Public/Test.vue'),
@@ -45,7 +50,7 @@ const components = [
 
 const routes = [
   {
-    path: '/Login',
+    path: '/login',
     name: 'Login',
     component: () => import('@/views/Dashboard/Login.vue'),
   },
@@ -57,13 +62,13 @@ const routes = [
   },
   {
     //手機頁面
-    path: '/Mobile',
+    path: '/mobile',
     component: () => import('@/layouts/Mobile/Default.vue'),
     children: mobileComponents,
   },
   {
     //個人管理頁面
-    path: '/Dashboard',
+    path: '/dashboard',
     component: () => import('@/layouts/Dashboard/Default.vue'),
     children: dashboardComponents,
   },
