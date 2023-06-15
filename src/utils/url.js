@@ -9,13 +9,11 @@ export function getApiUrl (apicode) {
 
     //依據目前端的domain判斷 配對API的URL
     const env = {
-        "http://localhost:5173":"http://localhost:44326", //開發環境
+        "http://localhost:3000":"http://localhost:3100", //開發環境
         "http://localhost:3010":"http://localhost:3011", //正式環境
     }
 
     const urlMap = new Map([
-        ["TEST",  env[host]+ "/api/test"],
-        ["TEST2", env[host]+ "/api/Test/GetMacAddress"],
         ["LOGIN", env[host]+ "/api/login"]
     ])
 
