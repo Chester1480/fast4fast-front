@@ -19,7 +19,9 @@
 </template>
 
 <script>
-    import {  getApiUrl , fetchGet } from '@/utils/url'
+    import { getApiUrl, fetchGet } from '@/utils/url'
+    import { putData , getData , getAllkeys } from '@/utils/IndexedDB';
+    
     export default ({
         data() {
             return{
@@ -27,6 +29,7 @@
             }
         },
         async mounted() {
+
             await this.getTestData();
         },
         watch: {
@@ -34,29 +37,18 @@
         },
         methods:{
             async getTestData() {
+                // const url = getApiUrl("");
+                // const result = await fetchGet(getApiUrl, {});
 
-                const data = [
-                    {
-                        title: "1",
+                const data = [];
+
+                for (let index = 0; index < 50; index++) {
+                    data.push({
+                        title: index,
                         content: {}
-                    },
-                    {
-                        title: "2",
-                        content: {}
-                    },
-                    {
-                        title: "3",
-                        content: {}
-                    },
-                    {
-                        title: "4",
-                        content: {}
-                    },
-                    {
-                        title: "5",
-                        content: {}
-                    },
-                ]
+                    })
+                }
+              
                 this.cotents = data;
             }
         },
