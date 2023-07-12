@@ -44,6 +44,9 @@
           },
         ],
       }),
+      mounted() {
+        document.title = 'login';
+      },
       methods: {
           postApi: async function(){
             const data = getDataByType();

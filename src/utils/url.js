@@ -21,12 +21,10 @@ export function getApiUrl (apicode) {
 }
 
 export async function fetchGet(apiUrl,params){
-    return new Promise(async(resolve,reject) => {
-        let paramsStr = "";
-        Object.keys(params).forEach(key => {
-            paramsStr += key + "=" + params[key] + "&";
-        });
-        apiUrl += paramsStr;
+    return new Promise(async (resolve, reject) => {
+        
+        let paramsStr = new URLSearchParams(params);
+        apiUrl += "?"+paramsStr;
         const rawResponse = await fetch(apiUrl, {
             method: 'GET',
             headers: {
@@ -52,10 +50,10 @@ export async function fetchPost(apiUrl,data){
     });
 }
 
-export async function axiosPost(apiUrl,data){
+export async function fetchPut(apiUrl,data){
     return new Promise(async (resolve,reject) => {
         const rawResponse = await fetch(apiUrl, {
-            method: 'POST',
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -65,3 +63,18 @@ export async function axiosPost(apiUrl,data){
         resolve(rawResponse.json()); // 正確完成的回傳方法
     });
 }
+
+export async function fetchDelete(apiUrl,data){
+    return new Promise(async (resolve,reject) => {
+        const rawResponse = await fetch(apiUrl, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        resolve(rawResponse.json()); // 正確完成的回傳方法
+    });
+}
+

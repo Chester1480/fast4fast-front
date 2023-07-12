@@ -42,14 +42,12 @@
 
                 const data = [];
 
-                for (let index = 0; index < 50; index++) {
-                    data.push({
+                for (let index = 1; index < 49; index++) {
+                    this.cotents.push({
                         title: index,
                         content: {}
                     })
                 }
-              
-                this.cotents = data;
             }
         },
     })
