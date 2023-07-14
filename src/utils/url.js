@@ -10,7 +10,6 @@ export function getApiUrl (apicode) {
     //依據目前端的domain判斷 配對API的URL
     const env = {
         "http://localhost:3000":"http://localhost:3100", //開發環境
-        "http://localhost:3010":"http://localhost:3011", //正式環境
     }
 
     const urlMap = new Map([
@@ -22,14 +21,15 @@ export function getApiUrl (apicode) {
 
 export async function fetchGet(apiUrl,params){
     return new Promise(async (resolve, reject) => {
-        
+        const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
         let paramsStr = new URLSearchParams(params);
         apiUrl += "?"+paramsStr;
         const rawResponse = await fetch(apiUrl, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':'Bearer '+token
             },
         });
         resolve(rawResponse.json());
@@ -37,12 +37,14 @@ export async function fetchGet(apiUrl,params){
 };
 
 export async function fetchPost(apiUrl,data){
-    return new Promise(async (resolve,reject) => {
+    return new Promise(async (resolve, reject) => {
+        const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
         const rawResponse = await fetch(apiUrl, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':'Bearer '+token
             },
             body: JSON.stringify(data)
         });
@@ -51,12 +53,14 @@ export async function fetchPost(apiUrl,data){
 }
 
 export async function fetchPut(apiUrl,data){
-    return new Promise(async (resolve,reject) => {
+    return new Promise(async (resolve, reject) => {
+        const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
         const rawResponse = await fetch(apiUrl, {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':'Bearer '+token
             },
             body: JSON.stringify(data)
         });
@@ -65,12 +69,14 @@ export async function fetchPut(apiUrl,data){
 }
 
 export async function fetchDelete(apiUrl,data){
-    return new Promise(async (resolve,reject) => {
+    return new Promise(async (resolve, reject) => {
+        const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
         const rawResponse = await fetch(apiUrl, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization':'Bearer '+token
             },
             body: JSON.stringify(data)
         });

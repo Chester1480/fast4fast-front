@@ -45,7 +45,8 @@
                 for (let index = 1; index < 49; index++) {
                     this.cotents.push({
                         title: index,
-                        content: {}
+                        content: {
+                        }
                     })
                 }
             }

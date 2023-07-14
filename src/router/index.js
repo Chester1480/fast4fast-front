@@ -37,41 +37,41 @@ const mobileComponents = [
 //一般PC頁面子項目
 const components = [
   {
-    path: '/searchfy',
+    path: '/',
     name: 'searchfy',
     component: () => import('@/views/Public/Searchfy.vue'),
   },
-  {
-    path: '/test',
-    name: 'test',
-    component: () => import('@/views/Public/Test.vue'),
-  },
+  // {
+  //   path: '/test',
+  //   name: 'test',
+  //   component: () => import('@/views/Public/Test.vue'),
+  // },
 ]
 
 const routes = [
-  {
-    path: '/login',
-    name: 'Login',
-    component: () => import('@/views/Dashboard/Login.vue'),
-  },
+  // {
+  //   path: '/login',
+  //   name: 'Login',
+  //   component: () => import('@/views/Dashboard/Login.vue'),
+  // },
   {
     //一般PC頁面
     path: '/',
     component: () => import('@/layouts/Default/Default.vue'),
     children: components,
   },
-  {
-    //手機頁面
-    path: '/mobile',
-    component: () => import('@/layouts/Mobile/Default.vue'),
-    children: mobileComponents,
-  },
-  {
-    //個人管理頁面
-    path: '/dashboard',
-    component: () => import('@/layouts/Dashboard/Default.vue'),
-    children: dashboardComponents,
-  },
+  // {
+  //   //手機頁面
+  //   path: '/mobile',
+  //   component: () => import('@/layouts/Mobile/Default.vue'),
+  //   children: mobileComponents,
+  // },
+  // {
+  //   //個人管理頁面
+  //   path: '/dashboard',
+  //   component: () => import('@/layouts/Dashboard/Default.vue'),
+  //   children: dashboardComponents,
+  // },
 ]
 
 const router = createRouter({
@@ -86,22 +86,22 @@ router.beforeEach((to, from, next) => {
   
    // //每次都記錄最後使用路由的位置
   localStorage.setItem("routerIndex",path);
-
-  if(path == '/login'){
-    if (isLoggedIn()) {
-      next('/')
-    }else{
-      next();
-    }
-    return;
-  }else{
-    if (!isLoggedIn()) {
-      next('/login')
-    }else{
-      next()
-    }
-    return;
-  }
+  next();
+  // if(path == '/login'){
+  //   if (isLoggedIn()) {
+  //     next('/')
+  //   }else{
+  //     next();
+  //   }
+  //   return;
+  // }else{
+  //   if (!isLoggedIn()) {
+  //     next('/login')
+  //   }else{
+  //     next()
+  //   }
+  //   return;
+  // }
 
   // //mobile way
   // if (isMobileDevice()) {
