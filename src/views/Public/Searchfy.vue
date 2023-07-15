@@ -1,6 +1,35 @@
 <template>
     <!-- {{ $t("test") }} -->
     <v-row no-gutters>
+        
+        <!-- <v-col cols="12" sm="12">
+            <br>
+            <div class="d-flex justify-center mb-6 ">
+                <v-autocomplete
+                    :items="searchProperty.historyItems"
+                    :placeholder="searchProperty.placeholder"
+                    auto-select-first
+                    class="flex-full-width"
+                    density="comfortable"
+                    item-props
+                    menu-icon=""
+                    prepend-inner-icon="mdi-magnify"
+                    rounded
+                    theme="light"
+                    variant="solo"
+                ></v-autocomplete>
+            </div>
+        </v-col> -->
+        <v-col cols="12" sm="12">
+            <br>
+            <v-carousel>
+                <v-carousel-item v-for="{ src , id } in slideShows" :key="id"
+                :src="src">
+                </v-carousel-item>
+            </v-carousel>
+            <br>
+        </v-col>
+
         <v-col v-for="(item) in cotents"
             :key="item.title"
             cols="12"
@@ -24,24 +53,49 @@
     
     export default ({
         data() {
-            return{
+            return {
+                // searchProperty: {
+                //     historyItems:new Set(),
+                //     placeholder:"輸入"
+                // },
                 cotents: [],
+                slideShows:[],
             }
         },
         async mounted() {
-
-            await this.getTestData();
+            await this.getSpotifyData();
         },
         watch: {
             
         },
         methods:{
-            async getTestData() {
+            async getSpotifyData() {
+                const url = getApiUrl("");
+                //const result = await fetchGet(getApiUrl("SPOTIFY_NEWRELEASE"), {});
+                await this.settingCotents();
+                await this.settingSlideShow();
+            },
+            async settingSlideShow() { 
+                
+                this.slideShows = [
+                    {
+                        id:0,
+                        src:"https://cdn.vuetifyjs.com/images/cards/docks.jpg",
+                    },
+                    {
+                        id:1,
+                        src:"https://cdn.vuetifyjs.com/images/cards/hotel.jpg",
+                    },
+                    {
+                        id:2,
+                        src:"https://cdn.vuetifyjs.com/images/cards/sunshine.jpg",
+                    },
+                ];
+            },
+            async settingCotents() {
                 // const url = getApiUrl("");
                 // const result = await fetchGet(getApiUrl, {});
-
                 const data = [];
-
                 for (let index = 1; index < 49; index++) {
                     this.cotents.push({
                         title: index,

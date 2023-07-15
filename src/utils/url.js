@@ -13,7 +13,8 @@ export function getApiUrl (apicode) {
     }
 
     const urlMap = new Map([
-        ["LOGIN", env[host]+ "/api/login"]
+        ["LOGIN", env[host] + "/api/login"],
+        ["SPOTIFY_NEWRELEASE", env[host]+ "/api/spotify"]
     ])
 
     return urlMap.get(apicode);
