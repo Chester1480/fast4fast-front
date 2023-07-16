@@ -71,11 +71,19 @@
         methods:{
             async getSpotifyData() {
                 const url = getApiUrl("");
-                //const result = await fetchGet(getApiUrl("SPOTIFY_NEWRELEASE"), {});
+                const parameters = {
+                    q:"11",
+                    type:"album", 
+                    market:"TW",
+                    limit:"1", 
+                    offset:"1",
+                };
+                const result = await fetchGet(getApiUrl("SPOTIFY_NEWRELEASE"), parameters);
+                console.log(result)
                 await this.settingCotents();
                 await this.settingSlideShow();
             },
-            async settingSlideShow() { 
+            async settingSlideShow(data) { 
                 
                 this.slideShows = [
                     {
@@ -92,10 +100,9 @@
                     },
                 ];
             },
-            async settingCotents() {
+            async settingCotents(data) {
                 // const url = getApiUrl("");
                 // const result = await fetchGet(getApiUrl, {});
-                const data = [];
                 for (let index = 1; index < 49; index++) {
                     this.cotents.push({
                         title: index,

@@ -9,12 +9,13 @@ export function getApiUrl (apicode) {
 
     //依據目前端的domain判斷 配對API的URL
     const env = {
-        "http://localhost:3000":"http://localhost:3100", //開發環境
+        "http://localhost:3000": "http://localhost:3100", //開發環境
+        "http://127.0.0.1:3000":"http://127.0.0.1:3100", //開發環境
     }
 
     const urlMap = new Map([
         ["LOGIN", env[host] + "/api/login"],
-        ["SPOTIFY_NEWRELEASE", env[host]+ "/api/spotify"]
+        ["SPOTIFY_NEWRELEASE", env[host]+ "/FrontStage/GetIndexData"]
     ])
 
     return urlMap.get(apicode);
