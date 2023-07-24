@@ -40,7 +40,7 @@
             <v-btn elevation="2" v-model="carousel.show" @click="carouselShow()" x-small :icon="carousel.showButtonIcon"  color="green"></v-btn>
         </v-col> -->
 
-        <v-col cols="12" sm="12" class="d-flex justify-center mb-6" >
+        <!-- <v-col cols="12" sm="12" class="d-flex justify-center mb-6" >
             <br>
             <iframe style="border-radius:12px" 
                 :src="play.src" 
@@ -51,7 +51,7 @@
                 allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                 loading="lazy">
             </iframe>
-        </v-col>
+        </v-col> -->
 
         <v-col v-for="(item) in cotents"
             :key="item.title"
@@ -68,12 +68,12 @@
                     cover
                     :src="item.images1"
                 >
-                    <v-btn
+                    <!-- <v-btn
                         class="ma-5"
                         color="green"
                         icon="mdi-play"
                         @click="play(item.track[0].id)"
-                    ></v-btn>
+                    ></v-btn> -->
                 </v-img>
                
 
