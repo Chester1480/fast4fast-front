@@ -48,6 +48,19 @@ const components = [
   // },
 ]
 
+const lineliffComponents = [
+  // {
+  //   path: '/Lineliff',
+  //   name: 'lineliff',
+  //   component: () => import('@/views/Public/Searchfy.vue'),
+  // },
+  {
+    path: '/Lineliff',
+    name: 'Index',
+    component: () => import('@/views/Lineliff/Index.vue'),
+  },
+]
+
 const routes = [
   // {
   //   path: '/login',
@@ -59,6 +72,11 @@ const routes = [
     path: '/',
     component: () => import('@/layouts/Default/Default.vue'),
     children: components,
+  },
+  {
+    path: '/Lineliff',
+    component: () => import('@/layouts/Lineliff/Default.vue'),
+    children: lineliffComponents,
   },
   // {
   //   //手機頁面
