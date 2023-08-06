@@ -49,11 +49,11 @@ const components = [
 ]
 
 const lineliffComponents = [
-  // {
-  //   path: '/Lineliff',
-  //   name: 'lineliff',
-  //   component: () => import('@/views/Public/Searchfy.vue'),
-  // },
+  {
+    path: '/Lineliff/Search',
+    name: 'Search',
+    component: () => import('@/views/Lineliff/Search.vue'),
+  },
   {
     path: '/Lineliff',
     name: 'Index',

@@ -23,26 +23,27 @@
              
               <v-tabs
                 v-model="tab"
-                bg-color="deep-purple-accent-4"
-                centered
-                stacked
+                :bg-color="tabs.backgroundColor"
+                align-tabs="center"
+                class="d-flex justify-center"
+                fixed-tabs 
               >
-               
-                <v-tab value="tab-1">
+                
+                <v-tab  value="tab-1" to="/Lineliff" >
                   <v-icon>mdi-home</v-icon>
-                  Home
                 </v-tab>
 
-                <v-tab value="tab-2">
+                <v-tab value="tab-2" to="/Lineliff/Search"   >
+                  <v-icon>mdi-magnify</v-icon>
+                </v-tab>
+                
+                <v-tab value="tab-3" >
                   <v-icon>mdi-home</v-icon>
-                  Favorites
                 </v-tab>
 
-                <v-tab value="tab-3">
-                  <v-icon>mdi-home</v-icon>
-                  Nearby
+                <v-tab value="tab-4" >
+                  <v-icon>mdi-account</v-icon>
                 </v-tab>
-
                 
               </v-tabs>
              
@@ -56,16 +57,41 @@
   export default {
     data () {
       return {
+        tabs: {
+          backgroundColor:"indigo",
+          content:[],
+        },
         tab: null,
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        text: '',
       }
     },
+    async mounted() {
+      await this.settingTans();
+    },
+    methods:{
+      async settingTans() {
+        const tabs = [
+          {
+            id: "tab-1",
+            icon: "mdi-home",
+            name: "Home",
+            url: "/Lineliff"
+          },
+          {
+            id: "tab-2",
+            icon: "",
+            name: "SEARCH",
+            url: "/Lineliff/Search"
+          }
+        ]
+        this.tabs.content = tabs;
+      }
+    }
   }
 </script>
 
 <style>
   menu {
-    background-color: #2b568d;
     color: #fff;
     padding: 10px;
     text-align: center;
@@ -73,6 +99,6 @@
   }
 
   main {
-    padding: 10px;
+    padding: 100px;
   }
 </style>
