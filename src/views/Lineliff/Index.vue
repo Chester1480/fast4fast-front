@@ -74,6 +74,9 @@ export default ({
                 },
             ]
             this.cards = cards;
+        },
+        async openMoreInfo() {
+            
         }
     },
 })

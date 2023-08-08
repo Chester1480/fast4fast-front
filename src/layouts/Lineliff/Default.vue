@@ -39,7 +39,7 @@
               </v-tab>
               
               <v-tab value="tab-3" >
-                <v-icon>mdi-home</v-icon>
+                <v-icon>mdi-message</v-icon>
               </v-tab>
 
               <v-tab value="tab-4" >
