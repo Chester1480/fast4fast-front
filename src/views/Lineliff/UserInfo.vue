@@ -1,6 +1,6 @@
 <template>
     <div>
-        44444
+        UserInfo
     </div>
 </template>
 

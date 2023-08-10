@@ -53,6 +53,19 @@ const lineliffComponents = [
     path: '/Lineliff/Search',
     name: 'Search',
     component: () => import('@/views/Lineliff/Search.vue'),
+    meta: {
+      title:"Search"
+    }
+  },
+  {
+    path: '/Lineliff/Message',
+    name: 'Message',
+    component: () => import('@/views/Lineliff/Message.vue'),
+  },
+  {
+    path: '/Lineliff/UserInfo',
+    name: 'UserInfo',
+    component: () => import('@/views/Lineliff/UserInfo.vue'),
   },
   {
     path: '/Lineliff',

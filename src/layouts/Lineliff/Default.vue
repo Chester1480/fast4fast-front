@@ -6,7 +6,7 @@
                 <v-card-text>
                   <v-window v-model="tab">
                       <v-window-item
-                        v-for="i in 3"
+                        v-for="i in 4"
                         :key="i"
                         :value="'tab-' + i"
                       >
@@ -38,11 +38,11 @@
                 <v-icon>mdi-magnify</v-icon>
               </v-tab>
               
-              <v-tab value="tab-3" >
+              <v-tab value="tab-3" to="/Lineliff/Message">
                 <v-icon>mdi-message</v-icon>
               </v-tab>
 
-              <v-tab value="tab-4" >
+              <v-tab value="tab-4" to="/Lineliff/UserInfo">
                 <v-icon>mdi-account</v-icon>
               </v-tab>
               
