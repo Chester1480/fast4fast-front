@@ -27,7 +27,6 @@
               :bg-color="tabs.backgroundColor"
               align-tabs="center"
               class="d-flex justify-center"
-              fixed-tabs 
             >
               
               <v-tab  value="tab-1" to="/Lineliff" >
@@ -49,7 +48,7 @@
             </v-tabs>
         </v-footer>
     </v-app>
-  </template>
+</template>
   
 <script>
   export default {

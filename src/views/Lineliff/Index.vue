@@ -1,5 +1,6 @@
 <template>
     <div>
+        
         <v-row no-gutters  
                v-for="(item) in cards" 
                :key="item"
@@ -7,7 +8,6 @@
             <v-col>
                 <v-card
                     class="mx-auto"
-                   
                 >
                     <v-img
                         class="align-end text-white"
@@ -27,7 +27,7 @@
                     </v-card-text>
 
                     <v-card-actions>
-                    <v-btn color="orange">
+                    <v-btn v-on:click="openMoreInfo" color="orange">
                         {{ item.btnText }}
                     </v-btn>
                     
@@ -37,17 +37,26 @@
                 </v-card>
             </v-col>
         </v-row>
-        
-    
-        
+        <!-- <Dialog :dialogShow="Dialog.show" ></Dialog> -->
     </div>
+    
     
 </template>
 
 <script>
-export default ({
+import { defineComponent } from 'vue';
+import Dialog from '@/components/Dialog.vue'
+
+export default defineComponent({
+    components:{
+        Dialog,
+    },
     data() {
         return {
+            TESTD: false,
+            Dialog: {
+                show:false,
+            },
             cards:[],
         }
     },
@@ -76,7 +85,12 @@ export default ({
             this.cards = cards;
         },
         async openMoreInfo() {
-            
+            this.Dialog.show = true;
+            this.TESTD = true;;
+            console.log( this.Dialog.show)
+        },
+        dialogClose() {
+            this.Dialog.show = false;
         }
     },
 })

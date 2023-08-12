@@ -6,6 +6,7 @@
         :scrim="false"
         transition="dialog-bottom-transition"
       >
+        333333
         <!-- <template v-slot:activator="{ props }">
           <v-btn
             color="primary"
@@ -15,7 +16,7 @@
             Open Dialog
           </v-btn>
         </template> -->
-        <v-card>
+        <!-- <v-card>
           <v-toolbar
             dark
             color="primary"
@@ -33,10 +34,10 @@
             </v-btn>
             </v-toolbar-items>
           </v-toolbar>
-          
+          33333333
           <v-divider></v-divider>
-          
-        </v-card>
+          4444444
+        </v-card> -->
       </v-dialog>
     </v-row>
   </template>
@@ -44,18 +45,24 @@
 <script>
 export default {
     props: {
-        dialogClose: { type: Function },
+      dialogShow:{
+        type: Boolean,
+        defaut:false
+      }
+    },
+    mounted() {
+      
     },
     data () {
-        return {
-            dialog: false,
+      return {
+            dialog: this.dialogShow,
         }
     },
     methods: {
-        dialogClose() {
-            //this.$emit('emit 名稱', '要傳回的值');
-            this.dialog = false;
-        }
+        // dialogClose() {
+        //     //this.$emit('emit 名稱', '要傳回的值');
+        //     this.dialog = false;
+        // }
     }
 }
 </script>
