@@ -75,11 +75,7 @@ const lineliffComponents = [
 ]
 
 const routes = [
-  // {
-  //   path: '/login',
-  //   name: 'Login',
-  //   component: () => import('@/views/Dashboard/Login.vue'),
-  // },
+ 
   {
     //一般PC頁面
     path: '/',
@@ -97,12 +93,17 @@ const routes = [
   //   component: () => import('@/layouts/Mobile/Default.vue'),
   //   children: mobileComponents,
   // },
-  // {
-  //   //個人管理頁面
-  //   path: '/dashboard',
-  //   component: () => import('@/layouts/Dashboard/Default.vue'),
-  //   children: dashboardComponents,
-  // },
+  {
+    path: '/dashboard/login',
+    name: 'Login',
+    component: () => import('@/views/Dashboard/Login.vue'),
+  },
+  {
+    //個人管理頁面
+    path: '/dashboard',
+    component: () => import('@/layouts/Dashboard/Default.vue'),
+    children: dashboardComponents,
+  },
 ]
 
 const router = createRouter({

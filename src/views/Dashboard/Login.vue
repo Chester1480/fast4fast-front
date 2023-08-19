@@ -7,14 +7,19 @@
                     <v-text-field
                     v-model="account"
                     label="account"
+                    :rules="accountRules"
+                    variant="outlined"
+                    clearable
                     ></v-text-field>
             
                     <v-text-field
                     v-model="password"
                     label="password"
                     type="password"
+                    variant="outlined"
+                    clearable
                     ></v-text-field>
-                    <v-btn @click="postApi" block class="mt-2">Login</v-btn>
+                    <v-btn @click="login" block class="mt-2">Login</v-btn>
                 </v-form>
             </v-sheet>
         </v-container>
@@ -23,23 +28,19 @@
   
   <script>
     import { fetchPost } from '../../utils/url';
-    import { getDataByType } from '../../utils/parameters';
-
-    const url = window.location.origin;
-    
     export default {
       data: () => ({
         account: '',
         accountRules: [
           value => {
             if (value?.length > 6) return true
-            // return 'First name must be at least 6 characters.'
+            return 'account must be at least 6 characters.'
           },
         ],
         password: '',
         passwordRules: [
           value => {
-            if (/[^0-9]/.test(value)) return true
+            // if (/[^0-9]/.test(value)) return true
             // return 'Last name can not contain digits.'
           },
         ],
@@ -48,18 +49,37 @@
         document.title = 'login';
       },
       methods: {
-          postApi: async function(){
-            const data = getDataByType();
-            localStorage.setItem("token", "1111");
-            const host = window.location.origin;
-           
-            const isMobileDevice = this.isMobileDevice();
+          login: async function(){
 
-            if (isMobileDevice()) {
-              window.location.assign(host + "/");
-            } else {
-              window.location.assign(host + "/");
+            const parameters = {
+                account: this.account,
+                password: this.password,
             }
+            let hasParametersEmpty = false;
+            Object.keys(parameters).forEach(item => {
+                if (!parameters[item]) {
+                  hasParametersEmpty = true;
+                }
+            })
+
+            if (!hasParametersEmpty) {
+                const result = await fetchPost("LOGIN", parameters);
+                if (result.statusCode == 400) {
+                  
+                }
+            }
+
+            // const result = await fetchPost("LOGIN", parameters);
+            // if (result.statusCode == 400) {
+              
+            // }
+            // const isMobileDevice = this.isMobileDevice();
+
+            // if (isMobileDevice()) {
+            //   window.location.assign(host + "/");
+            // } else {
+            //   window.location.assign(host + "/");
+            // }
             // const result = await fetchPost(url, data);
             // if (result) {
               

@@ -3,18 +3,18 @@
  * @param { 範例:"TEST" } apicode 
  * @returns 
  */
-export function getApiUrl (apicode) {
+function getApiUrl(apicode) {
 
     const host = window.location.origin;
 
     //依據目前端的domain判斷 配對API的URL
     const env = {
         "http://localhost:3000": "http://localhost:3100", //開發環境
-        "http://127.0.0.1:3000": "http://127.0.0.1:3100", //開發環境
+        "http://127.0.0.1:3000": "http://127.0.0.1:3100", //開發環境0
     }
 
     const urlMap = new Map([
-        ["LOGIN", env[host] + "/api/login"],
+        ["LOGIN", env[host] + "/auth/AccountLogin"],
         ["SPOTIFY_SEARCH", env[host] + "/FrontStage/GetIndexData"],
         ["SPOTIFY_NEWRELEASE", env[host] + "/FrontStage/GetNewReleases"]
     ])
@@ -22,12 +22,18 @@ export function getApiUrl (apicode) {
     return urlMap.get(apicode);
 }
 
-export async function fetchGet(apiUrl,params){
+export function statusParase(statusCode){
+    const statusMap = new Map([
+        [400]
+    ])
+}
+
+export async function fetchGet(key,params){
     return new Promise(async (resolve, reject) => {
         const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
         let paramsStr = new URLSearchParams(params);
         apiUrl += "?"+paramsStr;
-        const rawResponse = await fetch(apiUrl, {
+        const rawResponse = await fetch(getApiUrl(key), {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
@@ -39,10 +45,10 @@ export async function fetchGet(apiUrl,params){
     });
 };
 
-export async function fetchPost(apiUrl,data){
+export async function fetchPost(key,data){
     return new Promise(async (resolve, reject) => {
         const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
-        const rawResponse = await fetch(apiUrl, {
+        const rawResponse = await fetch(getApiUrl(key), {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -55,10 +61,10 @@ export async function fetchPost(apiUrl,data){
     });
 }
 
-export async function fetchPut(apiUrl,data){
+export async function fetchPut(key,data){
     return new Promise(async (resolve, reject) => {
         const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
-        const rawResponse = await fetch(apiUrl, {
+        const rawResponse = await fetch(getApiUrl(key), {
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -71,10 +77,10 @@ export async function fetchPut(apiUrl,data){
     });
 }
 
-export async function fetchDelete(apiUrl,data){
+export async function fetchDelete(key,data){
     return new Promise(async (resolve, reject) => {
         const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
-        const rawResponse = await fetch(apiUrl, {
+        const rawResponse = await fetch(getApiUrl(key), {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
