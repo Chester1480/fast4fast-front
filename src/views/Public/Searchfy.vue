@@ -95,7 +95,7 @@
 </template>
 
 <script>
-    import { getApiUrl, fetchGet } from '@/utils/url'
+    import { fetchGet } from '@/utils/url'
     import { putData , getData , getAllkeys } from '@/utils/IndexedDB';
     
     export default ({
@@ -134,7 +134,7 @@
                     limit:"20", 
                     offset:"1",
                 };
-                const result = await fetchGet(getApiUrl("SPOTIFY_NEWRELEASE"), parameters);
+                const result = await fetchGet("SPOTIFY_NEWRELEASE", parameters);
                 const { href , items , next  , previous , total } = result.data.data.albums;
                 await this.settingCotents(items);
                 await this.settingSlideShow(items);

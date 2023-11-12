@@ -32,8 +32,8 @@ export async function fetchGet(key,params){
     return new Promise(async (resolve, reject) => {
         const token = localStorage.getItem("token") == null?'': localStorage.getItem("token");
         let paramsStr = new URLSearchParams(params);
-        apiUrl += "?"+paramsStr;
-        const rawResponse = await fetch(getApiUrl(key), {
+        const apiUrl = getApiUrl(key)+"?"+paramsStr;
+        const rawResponse = await fetch(apiUrl, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',
