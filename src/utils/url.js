@@ -23,9 +23,11 @@ function getApiUrl(apicode) {
 }
 
 export function statusParase(statusCode){
-    const statusMap = new Map([
-        [400]
-    ])
+    const statusMap = {
+        "200":"",
+        "400":""
+    }
+    return statusMap[statusCode];
 }
 
 export async function fetchGet(key,params){
