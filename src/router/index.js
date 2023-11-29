@@ -26,6 +26,16 @@ const dashboardComponents = [
     component: () => import('@/views/Dashboard/Table.vue'),
   },
 ];
+
+//測試項目DashboardComponents
+const testDashboardComponents = [
+  {
+    path: '',
+    name: 'home',
+    component: () => import('@/views/Test/Home.vue'),
+  },
+]
+
 //手機頁面子項目
 const mobileComponents = [
   // {
@@ -34,6 +44,7 @@ const mobileComponents = [
   //   component: () => import('@/views/PC/About.vue'),
   // },
 ]
+
 //一般PC頁面子項目
 const components = [
   {
@@ -103,6 +114,12 @@ const routes = [
     path: '/dashboard',
     component: () => import('@/layouts/Dashboard/Default.vue'),
     children: dashboardComponents,
+  },
+  {
+    //測試用功能
+    path: '/testdashboard',
+    component: () => import('@/layouts/Test/Default.vue'),
+    children: testDashboardComponents,
   },
 ]
 
