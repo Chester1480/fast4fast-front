@@ -30,9 +30,14 @@ const dashboardComponents = [
 //測試項目DashboardComponents
 const testDashboardComponents = [
   {
-    path: '',
+    path: '/',
     name: 'home',
     component: () => import('@/views/Test/Home.vue'),
+  },
+  {
+    path: '/testdashboard/account',
+    name: 'account',
+    component: () => import('@/views/Test/Account.vue'),
   },
 ]
 

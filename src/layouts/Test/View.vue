@@ -23,7 +23,9 @@
         <v-divider></v-divider>
 
         <v-list density="compact" nav v-for="(item,index) in items">
-          <v-list-item :prepend-icon="item.icon" :title="item.title" :value="item.value"></v-list-item>
+          <v-list-item 
+            :prepend-icon="item.icon" :title="item.title" :value="item.value" :to="item.url">
+          </v-list-item>
         </v-list>
 
       </v-navigation-drawer>
@@ -49,8 +51,8 @@
     methods:{
       setItems(){
         this.items = [
-          { title: 'Home', icon: 'mdi-home-city' ,value:'home'},
-          { title: 'Account', icon: 'mdi-account',value:'account' },
+          { title: 'Home', icon: 'mdi-home-city' ,value:'home', url:'/testdashboard'  },
+          { title: 'Account', icon: 'mdi-account',value:'account', url:'/testdashboard/account' },
           // { title: 'Users', icon: 'mdi-account-group-outline',value:'home' },
         ];
       }
